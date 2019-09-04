@@ -1,5 +1,5 @@
 const express = require('express');
-const mongoose = require('..\\db\\index.js');
+const mongoose = require('..\\db');
 
 const UserSchema = new mongoose.Schema({
     name: {

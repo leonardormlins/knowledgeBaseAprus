@@ -1,11 +1,12 @@
-const  express = require('express');
-const User = require('..\\model\\user.js');
+const express = require('express');
+const User = require('..\\db');
 
 const router = express.Router();
 
 router.post('/register', async (req, res)=>{
     try{
         const user = User.create(req.body);
+        console.log(user);
         return res.send({user});
     }
     catch(err){
