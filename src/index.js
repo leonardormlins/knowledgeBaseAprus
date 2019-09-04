@@ -1,11 +1,11 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+const express = require('express')
+const bodyParser = require('body-parser')
 
-const app = express();
+const app = express()
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}))
 
-require("./controller/authController")(app);
+require("./controller/authController")(app)
 
-app.listen(9090);
+app.listen(9090)

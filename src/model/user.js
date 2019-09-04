@@ -1,5 +1,6 @@
-const express = require('express');
-const mongoose = require('..\\db');
+const express = require('express')
+const mongoose = require('..\\db')
+const bcryptjs = require('bcryptjs')
 
 const UserSchema = new mongoose.Schema({
     name: {
@@ -21,8 +22,13 @@ const UserSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     }
-});
+})
+
+UserSchema.pre('save', async (next) => {
+    const crypt = await bcryptjs.hash(this.password, 10)
+    this.password = crypt
+})
 
 const User = mongoose.model('User', UserSchema)
 
-module.exports = User;
+module.exports = User
