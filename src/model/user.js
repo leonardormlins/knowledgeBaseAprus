@@ -27,6 +27,7 @@ const UserSchema = new mongoose.Schema({
 UserSchema.pre('save', async (next) => {
     const crypt = await bcryptjs.hash(this.password, 10)
     this.password = crypt
+    next()
 })
 
 const User = mongoose.model('User', UserSchema)
