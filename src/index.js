@@ -5,6 +5,7 @@ const app = express()
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
+app.use(express.static('static'))
 
 require("./controller/authController")(app)
 
